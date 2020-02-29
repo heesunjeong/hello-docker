@@ -19,8 +19,8 @@ services:
     environment:
       MYSQL_DATABASE: test_db
       MYSQL_ROOT_PASSWORD: password
-      MYSQL_USER: joy-jeong
-      MYSQL_PASSWORD: password
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - 33061:3306
 
@@ -39,8 +39,8 @@ services:
       - ./docker/data:/data
     environment:
       SPRING_PROFILES_ACTIVE: prod
-      MYSQL_USER: joy-jeong
-      MYSQL_PASSWORD: password
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     depends_on:
       - database
       - redis
