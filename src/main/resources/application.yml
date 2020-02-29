@@ -1,15 +1,18 @@
 spring:
   profiles:
     active: dev
+
   jpa:
     hibernate:
       ddl-auto: create
     show-sql: true
     generate-ddl: true
     database: mysql
+
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    platform: com.mysql.jdbc.Driver
+    platform: mysql
+
   redis:
     port: 6379
 
