@@ -22,7 +22,7 @@ services:
       MYSQL_USER: joy-jeong
       MYSQL_PASSWORD: password
     ports:
-      - 3306:3306
+      - 33061:3306
 
   redis:
     image: redis

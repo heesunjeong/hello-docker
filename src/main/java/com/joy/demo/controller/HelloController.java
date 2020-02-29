@@ -1,6 +1,7 @@
 package com.joy.demo.controller;
 
 import com.joy.demo.domain.User;
+import com.joy.demo.domain.hash.UserHash;
 import com.joy.demo.repository.UserRedisRepository;
 import com.joy.demo.repository.UserRepository;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,9 +27,10 @@ public class HelloController {
     @GetMapping("/{name}")
     public String sayYourName(@PathVariable String name) {
         String userName = userRedisRepository.findUserByName(name)
-                .map(com.joy.demo.domain.redis.User::getName)
+                .map(UserHash::getName)
                 .orElseGet(() -> {
-                    User savedUser = userRepository.save(User.of(name));
+                    User savedUser = userRepository.save(User.builder().name(name).build());
+                    userRedisRepository.save(UserHash.of(savedUser));
                     return savedUser.getName();
                 });
 

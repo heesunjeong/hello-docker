@@ -1,29 +1,27 @@
 package com.joy.demo.domain;
 
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Getter
+@NoArgsConstructor
 @Entity
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     private String name;
 
-    public User() {
-    }
-
+    @Builder
     public User(String name) {
         this.name = name;
     }
-
-    public static User of(String name) {
-        return new User(name);
-    }
-
-    public String getName() {
-        return this.name;
-    }
 }
+
