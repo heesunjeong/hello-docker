@@ -39,6 +39,8 @@ services:
       - ./docker/data:/data
     environment:
       SPRING_PROFILES_ACTIVE: prod
+      MYSQL_USER: joy-jeong
+      MYSQL_PASSWORD: password
     depends_on:
       - database
       - redis

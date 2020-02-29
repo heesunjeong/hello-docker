@@ -28,7 +28,7 @@ spring:
   profiles: prod
   datasource:
     url: jdbc:mysql://database:3306/test_db?allowPublicKeyRetrieval=true&useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC&autoReconnection=true
-    username: root
-    password: password
+    username: ${MYSQL_USER}
+    password: ${MYSQL_PASSWORD}
   redis:
     host: redis
